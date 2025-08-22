@@ -35,3 +35,6 @@ Próximos pasos Prototipo de combate y primer nivel (calle urbana con 2 tipos de
 Los beat 'em up indie están resurgiendo (River City Girls, TMNT: Shredder’s Revenge), pero pocos mezclan humor y meta-narrativa.
 
 Desarrollado por Gaspar Gatti.
+
+
+PUTO EL QUE LEE
