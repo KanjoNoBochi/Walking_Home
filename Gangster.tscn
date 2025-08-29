@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://m76cwwwxwbhr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1s56"]
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jp1n"]
+height = 66.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44fh7"]
+size = Vector2(52, 52)
+
+[node name="Gangster" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r1s56")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_6jp1n")
+
+[node name="AttackBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(36, -9)
+shape = SubResource("RectangleShape2D_44fh7")
