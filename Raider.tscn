@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://c0ilppjj5m22n"]
+[gd_scene load_steps=48 format=3 uid="uid://c0ilppjj5m22n"]
 
 [ext_resource type="Texture2D" uid="uid://dxcxgdp2fdf7t" path="res://Walking_Home/assets/textures/Raider_3/Idle_2.png" id="1_74vsd"]
+[ext_resource type="Script" uid="uid://dt2sacia0wmbw" path="res://raider.gd" id="1_c5vjh"]
 [ext_resource type="Texture2D" uid="uid://bq8rxu1glxpe0" path="res://Walking_Home/assets/textures/Raider_3/Dead.png" id="1_sm3te"]
 [ext_resource type="Texture2D" uid="uid://xmnjkhhf5h85" path="res://Walking_Home/assets/textures/Raider_3/Hurt.png" id="2_c5vjh"]
 [ext_resource type="Texture2D" uid="uid://c08d1fmpjbe4u" path="res://Walking_Home/assets/textures/Raider_3/Jump.png" id="2_koa1y"]
@@ -300,7 +301,8 @@ height = 66.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5vjh"]
 size = Vector2(52, 52)
 
-[node name="Raider" type="CharacterBody2D"]
+[node name="Raider" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_c5vjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_koa1y")
@@ -308,15 +310,15 @@ shape = SubResource("CapsuleShape2D_koa1y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -31)
 sprite_frames = SubResource("SpriteFrames_c5vjh")
-animation = &"vertical_attack"
-frame_progress = 0.407224
+animation = &"idle"
+frame_progress = 0.153112
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_sm3te")
 
-[node name="AttackBox" type="Area2D" parent="."]
+[node name="AttackBox" type="Area2D" parent="." groups=["player_attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(36, -9)

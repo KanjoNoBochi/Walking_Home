@@ -437,21 +437,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="Node2D" groups=["hud"]]
 
-[node name="Life" type="Node2D" parent="."]
+[node name="LifeBar" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Life"]
-position = Vector2(49, 17)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LifeBar"]
+position = Vector2(96, 21)
+scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_6y84o")
 animation = &"full"
-frame_progress = 0.559735
+frame_progress = 0.0318175
 
 [node name="Special" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Special"]
-position = Vector2(19, 56)
-scale = Vector2(0.6875, 0.6875)
+position = Vector2(27, 72)
+scale = Vector2(1.28906, 1.28906)
 sprite_frames = SubResource("SpriteFrames_mu7qq")
 animation = &"full"
-frame_progress = 0.335457
+frame_progress = 0.477959
