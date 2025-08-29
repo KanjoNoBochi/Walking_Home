@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://jyql1d42uu6f"]
+[gd_scene load_steps=7 format=3 uid="uid://jyql1d42uu6f"]
 
-[ext_resource type="Texture2D" uid="uid://c041huae1igk8" path="res://Walking_Home/assets/textures/City3/Pale/City3_pale.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c6cpjjqqojubj" path="res://EdificiosYVereda.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c0ilppjj5m22n" path="res://Raider.tscn" id="2_0xm2m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(2.319, 0.573)
+[ext_resource type="PackedScene" uid="uid://ova5bb66icdy" path="res://Calle.tscn" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://bh2vm13ddj7fd" path="res://Homeless1.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://h5kgtwc07qat" path="res://Homeless2.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://m76cwwwxwbhr" path="res://Gangster.tscn" id="6_4c57u"]
 
 [node name="Nivel" type="Node2D"]
 
-[node name="Escenario_StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-206, 140)
+[node name="EdificiosYVereda" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(0, 120)
 
-[node name="Sprite2D" type="Sprite2D" parent="Escenario_StaticBody2D"]
-position = Vector2(783.48, 91.0755)
-scale = Vector2(0.60656, 0.60656)
-texture = ExtResource("1_ig7tw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario_StaticBody2D"]
-position = Vector2(783.25, 368.75)
-scale = Vector2(500, 500)
-shape = SubResource("RectangleShape2D_ig7tw")
-one_way_collision_margin = 0.0
-debug_color = Color(0.868162, 0.345391, 0.19444, 0.42)
+[node name="Calle" parent="." instance=ExtResource("2_272bh")]
 
 [node name="Raider" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(68, 427)
+position = Vector2(62, 513)
+
+[node name="Homeless 1" parent="." instance=ExtResource("4_5vw27")]
+position = Vector2(477, 561)
+
+[node name="Homeless 2" parent="." instance=ExtResource("5_kek77")]
+position = Vector2(719, 361)
+
+[node name="Gangster" parent="." instance=ExtResource("6_4c57u")]
+position = Vector2(977, 473)

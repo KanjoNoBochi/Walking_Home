@@ -308,7 +308,7 @@ animations = [{
 height = 66.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6fu5"]
-size = Vector2(52, 52)
+size = Vector2(31, 52)
 
 [node name="Homeless 1" type="CharacterBody2D"]
 
@@ -319,7 +319,7 @@ shape = SubResource("CapsuleShape2D_6cqnx")
 position = Vector2(6, -31)
 sprite_frames = SubResource("SpriteFrames_ktjak")
 animation = &"attack"
-frame_progress = 0.428587
+frame_progress = 0.543946
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -329,5 +329,5 @@ shape = SubResource("CapsuleShape2D_vvgan")
 [node name="AttackBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
-position = Vector2(36, -9)
+position = Vector2(25.5, -9)
 shape = SubResource("RectangleShape2D_o6fu5")

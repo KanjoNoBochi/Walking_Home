@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://ova5bb66icdy"]
+
+[ext_resource type="Texture2D" uid="uid://wsa1jxtwk8es" path="res://Walking_Home/assets/textures/City3/Pale/road_pale.png" id="1_j456w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2rbj"]
+size = Vector2(1152, 343)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j456w"]
+radius = 11.0
+height = 36.0
+
+[node name="Calle" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_j456w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2(576, 476.5)
+shape = SubResource("RectangleShape2D_l2rbj")
+debug_color = Color(0, 0.6, 0.701961, 0.207843)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(42, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(126, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(208, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(289, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(371, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(455, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+position = Vector2(537, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+position = Vector2(618, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+position = Vector2(702, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+position = Vector2(784, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+position = Vector2(865, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
+position = Vector2(947, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="."]
+position = Vector2(1031, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="."]
+position = Vector2(1112, 434)
+shape = SubResource("CapsuleShape2D_j456w")
+debug_color = Color(0.746314, 0.207582, 1, 0.42)

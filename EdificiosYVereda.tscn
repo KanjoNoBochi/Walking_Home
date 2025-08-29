@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6cpjjqqojubj"]
+
+[ext_resource type="Texture2D" uid="uid://cbnkcsjbhn4y" path="res://Walking_Home/assets/textures/City3/Pale/houses3_pale.png" id="1_38v8l"]
+[ext_resource type="Texture2D" uid="uid://csm0mjh2xlmxm" path="res://Walking_Home/assets/textures/City3/Pale/houded2_pale.png" id="2_0pwx6"]
+[ext_resource type="Texture2D" uid="uid://bi2slv2ddmrqb" path="res://Walking_Home/assets/textures/City3/Pale/houses1_pale.png" id="3_dy4a5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqid"]
+size = Vector2(1152, 543)
+
+[node name="EdificiosYVereda" type="StaticBody2D"]
+
+[node name="Houses3Pale" type="Sprite2D" parent="."]
+position = Vector2(576, 0.843757)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_38v8l")
+
+[node name="Houded2Pale" type="Sprite2D" parent="."]
+position = Vector2(576, 0.812517)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_0pwx6")
+
+[node name="Houses1Pale" type="Sprite2D" parent="."]
+position = Vector2(576, 7.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_dy4a5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(576, -38.5)
+shape = SubResource("RectangleShape2D_kyqid")
+debug_color = Color(1, 0.00392157, 0.0745098, 0.14902)
