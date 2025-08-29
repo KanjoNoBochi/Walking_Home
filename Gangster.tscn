@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://m76cwwwxwbhr"]
+[gd_scene load_steps=63 format=3 uid="uid://m76cwwwxwbhr"]
 
 [ext_resource type="Texture2D" uid="uid://c107eiivis2f0" path="res://Walking_Home/assets/textures/Gangsters_2/Attack_1.png" id="1_3jn0k"]
 [ext_resource type="Texture2D" uid="uid://c4cg8m1dpjx1e" path="res://Walking_Home/assets/textures/Gangsters_2/Attack_2.png" id="2_u8nbn"]
@@ -401,6 +401,9 @@ height = 66.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0yei"]
 size = Vector2(31, 52)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jn0k"]
+radius = 517.163
+
 [node name="Gangster" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -410,7 +413,7 @@ shape = SubResource("CapsuleShape2D_r1s56")
 position = Vector2(5, -31)
 sprite_frames = SubResource("SpriteFrames_7yye4")
 animation = &"attack"
-frame_progress = 0.299309
+frame_progress = 0.405727
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -422,3 +425,9 @@ shape = SubResource("CapsuleShape2D_6jp1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(26, -9)
 shape = SubResource("RectangleShape2D_m0yei")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_3jn0k")
+debug_color = Color(0.670588, 0.509804, 0, 0.101961)

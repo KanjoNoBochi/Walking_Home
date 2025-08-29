@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bh2vm13ddj7fd"]
+[gd_scene load_steps=50 format=3 uid="uid://bh2vm13ddj7fd"]
 
 [ext_resource type="Texture2D" uid="uid://dlehuyto0x54p" path="res://Walking_Home/assets/textures/Homeless_1/Attack_1.png" id="1_oykya"]
 [ext_resource type="Texture2D" uid="uid://bc08k8qyyrumq" path="res://Walking_Home/assets/textures/Homeless_1/Dead.png" id="2_c51ux"]
@@ -310,6 +310,9 @@ height = 66.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6fu5"]
 size = Vector2(31, 52)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oykya"]
+radius = 517.163
+
 [node name="Homeless 1" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -319,7 +322,7 @@ shape = SubResource("CapsuleShape2D_6cqnx")
 position = Vector2(6, -31)
 sprite_frames = SubResource("SpriteFrames_ktjak")
 animation = &"attack"
-frame_progress = 0.543946
+frame_progress = 0.436656
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -331,3 +334,9 @@ shape = SubResource("CapsuleShape2D_vvgan")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(25.5, -9)
 shape = SubResource("RectangleShape2D_o6fu5")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_oykya")
+debug_color = Color(0.670588, 0.509804, 0, 0.101961)

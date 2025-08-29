@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jyql1d42uu6f"]
+[gd_scene load_steps=8 format=3 uid="uid://jyql1d42uu6f"]
 
 [ext_resource type="PackedScene" uid="uid://c6cpjjqqojubj" path="res://EdificiosYVereda.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c0ilppjj5m22n" path="res://Raider.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bh2vm13ddj7fd" path="res://Homeless1.tscn" id="4_5vw27"]
 [ext_resource type="PackedScene" uid="uid://h5kgtwc07qat" path="res://Homeless2.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://m76cwwwxwbhr" path="res://Gangster.tscn" id="6_4c57u"]
+[ext_resource type="PackedScene" uid="uid://buyjb86757ej3" path="res://HUD.tscn" id="7_272bh"]
 
 [node name="Nivel" type="Node2D"]
 
@@ -25,3 +26,5 @@ position = Vector2(719, 361)
 
 [node name="Gangster" parent="." instance=ExtResource("6_4c57u")]
 position = Vector2(977, 473)
+
+[node name="HUD" parent="." instance=ExtResource("7_272bh")]
