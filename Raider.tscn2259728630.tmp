@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c0ilppjj5m22n"]
+[gd_scene load_steps=48 format=3 uid="uid://c0ilppjj5m22n"]
 
 [ext_resource type="Texture2D" uid="uid://dxcxgdp2fdf7t" path="res://Walking_Home/assets/textures/Raider_3/Idle_2.png" id="1_74vsd"]
 [ext_resource type="Script" uid="uid://dt2sacia0wmbw" path="res://raider.gd" id="1_c5vjh"]
 [ext_resource type="Texture2D" uid="uid://bq8rxu1glxpe0" path="res://Walking_Home/assets/textures/Raider_3/Dead.png" id="1_sm3te"]
 [ext_resource type="Texture2D" uid="uid://xmnjkhhf5h85" path="res://Walking_Home/assets/textures/Raider_3/Hurt.png" id="2_c5vjh"]
+[ext_resource type="Texture2D" uid="uid://c08d1fmpjbe4u" path="res://Walking_Home/assets/textures/Raider_3/Jump.png" id="2_koa1y"]
 [ext_resource type="Texture2D" uid="uid://dlshpbqp80s3c" path="res://Walking_Home/assets/textures/Raider_3/Attack_1.png" id="5_ngb0e"]
 [ext_resource type="Texture2D" uid="uid://drc4pw7khjs3q" path="res://Walking_Home/assets/textures/Raider_3/Attack_3.png" id="6_i7ry4"]
 [ext_resource type="Texture2D" uid="uid://cseu14icgfqff" path="res://Walking_Home/assets/textures/Raider_3/Walk.png" id="7_oasm5"]
@@ -54,6 +55,38 @@ region = Rect2(384, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sm3te"]
 atlas = ExtResource("1_74vsd")
 region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5vjh"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngb0e"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ry4"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oasm5"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgkv5"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4u6y"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpye5"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2as2v"]
+atlas = ExtResource("2_koa1y")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srwr0"]
 atlas = ExtResource("5_ngb0e")
@@ -171,6 +204,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c5vjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngb0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ry4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oasm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgkv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4u6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpye5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2as2v")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_srwr0")
 }, {
 "duration": 1.0,
@@ -248,7 +310,8 @@ shape = SubResource("CapsuleShape2D_koa1y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -31)
 sprite_frames = SubResource("SpriteFrames_c5vjh")
-animation = &"walk"
+animation = &"idle"
+frame_progress = 0.153112
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -271,8 +334,4 @@ one_shot = true
 
 [node name="SpecialCooldownTimer" type="Timer" parent="."]
 wait_time = 60.0
-one_shot = true
-
-[node name="AttackCooldownTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
