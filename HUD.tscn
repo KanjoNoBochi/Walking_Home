@@ -445,8 +445,8 @@ animations = [{
 position = Vector2(96, 21)
 scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_6y84o")
-animation = &"full"
-frame_progress = 0.0318175
+animation = &"4.5"
+frame_progress = 0.794457
 
 [node name="Special" type="Node2D" parent="."]
 

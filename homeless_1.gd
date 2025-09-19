@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 150
 @export var health = 3
 @export var is_boss = false
+@export var attack_cooldown = 1.0
 
 # Estados del enemigo
 enum State {IDLE, CHASE, ATTACK, HURT, DEAD}
@@ -11,18 +12,22 @@ var current_state = State.IDLE
 
 # Referencias
 var player = null
+var can_attack = true
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = $DetectionArea
 @onready var attack_box = $AttackBox
 @onready var hurt_box = $HurtBox
+@onready var hurt_timer = $HurtTimer
+@onready var attack_timer = $AttackTimer
+@onready var attack_cooldown_timer = $AttackCooldownTimer
+@onready var death_timer = $DeathTimer
 
 func _ready():
-	# Conectar señales
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 	hurt_box.area_entered.connect(_on_hurt_box_area_entered)
 	
-	# Configurar grupo
 	if is_boss:
 		add_to_group("boss")
 	else:
@@ -35,10 +40,8 @@ func _physics_process(delta):
 		State.CHASE:
 			chase_player(delta)
 		State.ATTACK:
-			# Reducir velocidad durante el ataque
 			velocity = Vector2.ZERO
 		State.HURT:
-			# Reducir velocidad durante el daño
 			velocity = Vector2.ZERO
 		State.DEAD:
 			velocity = Vector2.ZERO
@@ -47,21 +50,22 @@ func _physics_process(delta):
 	update_animation()
 
 func chase_player(delta):
-	if player and current_state != State.HURT and current_state != State.DEAD:
+	if player and current_state != State.HURT and current_state != State.DEAD and can_attack:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 		
-		# Girar sprite según dirección
 		if direction.x != 0:
 			animated_sprite.flip_h = direction.x < 0
 		
-		# Verificar si está lo suficientemente cerca para atacar
-		if global_position.distance_to(player.global_position) < 50:
-			current_state = State.ATTACK
-			# Activar caja de ataque
-			attack_box.monitoring = true
-			# Temporizador para desactivar ataque
-			$AttackTimer.start(0.4)
+		if global_position.distance_to(player.global_position) < 50 and can_attack:
+			start_attack()
+
+func start_attack():
+	current_state = State.ATTACK
+	can_attack = false
+	attack_box.monitoring = true
+	attack_timer.start(0.4)
+	attack_cooldown_timer.start(attack_cooldown)
 
 func update_animation():
 	match current_state:
@@ -85,16 +89,14 @@ func take_damage(amount):
 	if health <= 0:
 		health = 0
 		current_state = State.DEAD
-		# Desactivar colisiones
 		$CollisionShape2D.disabled = true
 		detection_area.monitoring = false
 		attack_box.monitoring = false
 		hurt_box.monitoring = false
-		# Remover después de un tiempo
-		$DeathTimer.start(2.0)
+		death_timer.start(2.0)
 	else:
 		current_state = State.HURT
-		$HurtTimer.start(0.5)
+		hurt_timer.start(0.5)
 
 func _on_detection_area_body_entered(body):
 	if body.name == "Raider":
@@ -107,14 +109,16 @@ func _on_detection_area_body_exited(body):
 		current_state = State.IDLE
 
 func _on_hurt_box_area_entered(area):
-	# Verificar si es un ataque del jugador
-	if area.is_in_group("player_attack"):
+	if area.is_in_group("player_attack") and current_state != State.HURT and current_state != State.DEAD:
 		take_damage(1)
 
 func _on_attack_timer_timeout():
 	attack_box.monitoring = false
 	if current_state == State.ATTACK:
 		current_state = State.CHASE
+
+func _on_attack_cooldown_timer_timeout():
+	can_attack = true
 
 func _on_hurt_timer_timeout():
 	if current_state == State.HURT:

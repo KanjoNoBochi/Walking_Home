@@ -280,8 +280,8 @@ shape = SubResource("CapsuleShape2D_ljdi7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -31)
 sprite_frames = SubResource("SpriteFrames_ffsjw")
-animation = &"attack"
-frame_progress = 0.138112
+animation = &"walk"
+frame_progress = 0.995783
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -300,5 +300,18 @@ shape = SubResource("RectangleShape2D_0vv04")
 shape = SubResource("CircleShape2D_nr4c0")
 debug_color = Color(0.670588, 0.509804, 0, 0.101961)
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

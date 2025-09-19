@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://jyql1d42uu6f"]
+[gd_scene load_steps=9 format=3 uid="uid://jyql1d42uu6f"]
 
 [ext_resource type="PackedScene" uid="uid://c6cpjjqqojubj" path="res://EdificiosYVereda.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ova5bb66icdy" path="res://Calle.tscn" id="2_272bh"]
-[ext_resource type="PackedScene" uid="uid://2056yjq2lyns" path="res://new_homeless_1.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bh2vm13ddj7fd" path="res://Homeless1.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://h5kgtwc07qat" path="res://Homeless2.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://m76cwwwxwbhr" path="res://Gangster.tscn" id="6_4c57u"]
 [ext_resource type="Script" uid="uid://jysphxr4j5cd" path="res://canvas_layer.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://buyjb86757ej3" path="res://HUD.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ccq5xjrooo87q" path="res://new_raider.tscn" id="8_5vw27"]
@@ -14,22 +16,19 @@ position = Vector2(0, 120)
 
 [node name="Calle" parent="." instance=ExtResource("2_272bh")]
 
-[node name="NewRaider" parent="." instance=ExtResource("8_5vw27")]
-position = Vector2(86, 465)
+[node name="Homeless 1" parent="." instance=ExtResource("4_5vw27")]
+position = Vector2(829, 359)
+
+[node name="Homeless 2" parent="." instance=ExtResource("5_kek77")]
+position = Vector2(956, 533)
+
+[node name="Gangster" parent="." instance=ExtResource("6_4c57u")]
+position = Vector2(1110, 360)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("7_5vw27")
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("7_272bh")]
 
-[node name="new_homeless1" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(499, 569)
-
-[node name="new_homeless2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(715, 569)
-
-[node name="new_homeless3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(930, 561)
-
-[node name="new_homeless4" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(933, 480)
+[node name="NewRaider" parent="." instance=ExtResource("8_5vw27")]
+position = Vector2(90, 472)

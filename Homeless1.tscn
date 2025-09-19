@@ -343,5 +343,18 @@ shape = SubResource("RectangleShape2D_o6fu5")
 shape = SubResource("CircleShape2D_oykya")
 debug_color = Color(0.670588, 0.509804, 0, 0.101961)
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

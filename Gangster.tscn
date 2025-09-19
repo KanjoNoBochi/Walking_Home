@@ -1,55 +1,58 @@
 [gd_scene load_steps=64 format=3 uid="uid://m76cwwwxwbhr"]
 
-[ext_resource type="Texture2D" uid="uid://c107eiivis2f0" path="res://Walking_Home/assets/textures/Gangsters_2/Attack_1.png" id="1_3jn0k"]
 [ext_resource type="Script" uid="uid://du400i3wru0hn" path="res://gangster.gd" id="1_u8nbn"]
-[ext_resource type="Texture2D" uid="uid://c4cg8m1dpjx1e" path="res://Walking_Home/assets/textures/Gangsters_2/Attack_2.png" id="2_u8nbn"]
 [ext_resource type="Texture2D" uid="uid://cfqqwtohcyjsk" path="res://Walking_Home/assets/textures/Gangsters_2/Dead.png" id="3_s65xu"]
 [ext_resource type="Texture2D" uid="uid://cnpl6f84hjn5t" path="res://Walking_Home/assets/textures/Gangsters_2/Hurt.png" id="4_3iyek"]
 [ext_resource type="Texture2D" uid="uid://d3qunvkup0dbq" path="res://Walking_Home/assets/textures/Gangsters_2/Idle.png" id="5_nrxo3"]
-[ext_resource type="Texture2D" uid="uid://cudxjxet66k0g" path="res://Walking_Home/assets/textures/Gangsters_2/Idle_2.png" id="6_vf1wu"]
 [ext_resource type="Texture2D" uid="uid://207aodsgd8jq" path="res://Walking_Home/assets/textures/Gangsters_2/Walk.png" id="7_2j3ns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1s56"]
 height = 66.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gi7e7"]
+load_path = "res://.godot/imported/Attack_1.png-4c7f2b53902d8b7cb770e8d0f0ca00c6.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wl6cd"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2g24"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lbxa"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6qhb"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqf24"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddcl4"]
-atlas = ExtResource("1_3jn0k")
+atlas = SubResource("CompressedTexture2D_gi7e7")
 region = Rect2(640, 0, 128, 128)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1nb6s"]
+load_path = "res://.godot/imported/Attack_2.png-a60a88ef9a7b4e1912e1f489fde31d47.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe745"]
-atlas = ExtResource("2_u8nbn")
+atlas = SubResource("CompressedTexture2D_1nb6s")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojqtb"]
-atlas = ExtResource("2_u8nbn")
+atlas = SubResource("CompressedTexture2D_1nb6s")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tybc1"]
-atlas = ExtResource("2_u8nbn")
+atlas = SubResource("CompressedTexture2D_1nb6s")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ji314"]
-atlas = ExtResource("2_u8nbn")
+atlas = SubResource("CompressedTexture2D_1nb6s")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xhki"]
@@ -120,56 +123,59 @@ region = Rect2(640, 0, 128, 128)
 atlas = ExtResource("5_nrxo3")
 region = Rect2(768, 0, 128, 128)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3jn0k"]
+load_path = "res://.godot/imported/Idle_2.png-9dfde0d034a8c7fd0ab751616dbcb07b.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmn3t"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cf03o"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sthd6"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arxvo"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nds2m"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f87cx"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xud3q"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8et85"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_akm32"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrcqo"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0w07w"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfiwk"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8d4x"]
-atlas = ExtResource("6_vf1wu")
+atlas = SubResource("CompressedTexture2D_3jn0k")
 region = Rect2(1536, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nee0c"]
@@ -415,7 +421,7 @@ shape = SubResource("CapsuleShape2D_r1s56")
 position = Vector2(5, -31)
 sprite_frames = SubResource("SpriteFrames_7yye4")
 animation = &"attack"
-frame_progress = 0.948007
+frame_progress = 0.176273
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -434,5 +440,18 @@ shape = SubResource("RectangleShape2D_m0yei")
 shape = SubResource("CircleShape2D_3jn0k")
 debug_color = Color(0.670588, 0.509804, 0, 0.101961)
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
