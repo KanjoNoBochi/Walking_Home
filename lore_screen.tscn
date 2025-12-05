@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfpxiwto0kr7n"]
+
+[ext_resource type="Script" uid="uid://dp7c3g0hj8716" path="res://lore_screen.gd" id="1_huifw"]
+[ext_resource type="Texture2D" uid="uid://cv12sdq31u5pp" path="res://Walking_Home/assets/textures/Fondos/pareja_en_parque.png" id="1_q12vp"]
+[ext_resource type="Texture2D" uid="uid://cya2g64kk3tlh" path="res://Walking_Home/assets/textures/Fondos/caminata_solitaria.png" id="2_huifw"]
+
+[node name="LoreScreen" type="Node2D"]
+script = ExtResource("1_huifw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_right = 475.0
+offset_bottom = 648.0
+texture = ExtResource("1_q12vp")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 681.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_huifw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 2
+offset_left = 475.0
+offset_right = 681.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 14
+text = "Terminaste de programar un juego en el que venías trabajando hace tiempo y tu pareja te invitó a una tarde en el parque para tomar algo y poder descansar luego del estrés del año.
+Fué un día frío pero soleado, el mas agradable.
+
+Al momento de regresar dejás a tu pareja en su casa como de costumbre y emprendés la vuelta a tu casa caminando.
+
+Notás que está oscureciendo en el barrio, por lo que decidis caminar por una avenida ya que tendría mas luz y habría mas gente.. de repente notás que la avenida está vacía y que diversos personajes empiezan a seguirte...
+
+Ahí es cuando te das cuenta que va a ser una vuelta larga."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

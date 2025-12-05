@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq8o3ttat5aaq"]
+
+[ext_resource type="Script" uid="uid://bjm2xstxyjvij" path="res://menu_inicio.gd" id="1_wkv36"]
+[ext_resource type="Texture2D" uid="uid://lyujcl1eq23i" path="res://Walking_Home/assets/textures/Fondos/Fondo WalkingHome.png" id="2_ylpju"]
+
+[sub_resource type="SystemFont" id="SystemFont_aqwrv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cxoyd"]
+font = SubResource("SystemFont_aqwrv")
+font_size = 64
+font_color = Color(0.874543, 0.580583, 0.0462334, 1)
+outline_color = Color(0.44, 0.315333, 0, 1)
+
+[node name="MenuInicio" type="CanvasLayer"]
+script = ExtResource("1_wkv36")
+
+[node name="Fondo" type="TextureRect" parent="."]
+offset_top = -120.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_ylpju")
+expand_mode = 1
+
+[node name="Titulo" type="Label" parent="."]
+offset_top = 90.0
+offset_right = 1152.0
+offset_bottom = 269.0
+text = "Walking Home
+"
+label_settings = SubResource("LabelSettings_cxoyd")
+horizontal_alignment = 1
+
+[node name="BotonIniciar" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 462.0
+offset_right = 154.0
+offset_bottom = 508.0
+text = "Comenzar"
+
+[node name="BotonSalir" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 513.0
+offset_right = 154.0
+offset_bottom = 557.0
+text = "Salir"

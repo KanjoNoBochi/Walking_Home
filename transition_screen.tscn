@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://p5g8mirabdqs"]
+
+[ext_resource type="Script" uid="uid://dt3bfir1hctr6" path="res://transition_screen.gd" id="1_57neh"]
+[ext_resource type="Texture2D" uid="uid://b0mgwknoq0kvl" path="res://Walking_Home/assets/textures/Fondos/cara_a_cara.png" id="2_n6j18"]
+
+[node name="Node2D" type="CanvasLayer"]
+script = ExtResource("1_57neh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_top = -55.0
+offset_right = 1152.0
+offset_bottom = 713.0
+texture = ExtResource("2_n6j18")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0.754516, 0.473956, 0.229578, 1)
+text = "Raider: Osea que los homeless no me atacaban porque querían plata, sinó que tenían órdenes... ¿Que querés de mí?
+
+
+
+Raider: No se que buscas, pero si es mío, no me lo vas a sacar por las buenas."
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0.752941, 0.47451, 0.231373, 1)
+text = "
+
+Gangster: Tenes algo que quiero. Tenes algo que entretiene y mi hijo quiere algo exclusivo para las fiestas. No me deja opción.
+
+
+Gangster: Ya vas a ver."
+horizontal_alignment = 2

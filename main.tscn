@@ -1,35 +1,114 @@
-[gd_scene load_steps=7 format=3 uid="uid://jyql1d42uu6f"]
+[gd_scene load_steps=14 format=3 uid="uid://jyql1d42uu6f"]
 
 [ext_resource type="PackedScene" uid="uid://c6cpjjqqojubj" path="res://EdificiosYVereda.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ova5bb66icdy" path="res://Calle.tscn" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://2056yjq2lyns" path="res://new_homeless_1.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://jysphxr4j5cd" path="res://canvas_layer.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://buyjb86757ej3" path="res://HUD.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ee8rvvdgyekc" path="res://new_homeless_2.tscn" id="7_kek77"]
+[ext_resource type="AudioStream" uid="uid://cqrhqbv1o68tq" path="res://Walking_Home/assets/audio/normal_music.mp3" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccq5xjrooo87q" path="res://new_raider.tscn" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://0cjc3m21jnbs" path="res://background_music.gd" id="9_kek77"]
+[ext_resource type="AudioStream" uid="uid://d2c3w3occa6d4" path="res://Walking_Home/assets/audio/boss_music.mp3" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://b25n64ootpled" path="res://transition_area.gd" id="11_efxa6"]
 
-[node name="Nivel" type="Node2D"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_272bh"]
+b = Vector2(0, 495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
+size = Vector2(467, 295)
+
+[node name="Nivel" type="Node"]
 
 [node name="EdificiosYVereda" parent="." instance=ExtResource("1_7mycd")]
 position = Vector2(0, 120)
 
+[node name="EdificiosYVereda2" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(1152, 120)
+
 [node name="Calle" parent="." instance=ExtResource("2_272bh")]
 
-[node name="NewRaider" parent="." instance=ExtResource("8_5vw27")]
-position = Vector2(86, 465)
+[node name="Calle2" parent="." instance=ExtResource("2_272bh")]
+position = Vector2(1152, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="EdificiosYVereda3" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(2304, 120)
+
+[node name="Calle3" parent="." instance=ExtResource("2_272bh")]
+position = Vector2(2304, 0)
+
+[node name="EdificiosYVereda4" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(3456, 120)
+
+[node name="Calle4" parent="." instance=ExtResource("2_272bh")]
+position = Vector2(3456, 0)
+
+[node name="EdificiosYVereda5" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(4608, 120)
+
+[node name="Calle5" parent="." instance=ExtResource("2_272bh")]
+position = Vector2(4608, 0)
+
+[node name="new_homeless1" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(1658, 555)
+
+[node name="new_homeless_2" parent="." instance=ExtResource("7_kek77")]
+position = Vector2(2056, 408)
+
+[node name="new_homeless2" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(1242, 405)
+
+[node name="NewRaider" parent="." instance=ExtResource("8_5vw27")]
+position = Vector2(404, 541)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["hud"]]
 script = ExtResource("7_5vw27")
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("7_272bh")]
 
-[node name="new_homeless1" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(499, 569)
+[node name="Node2D2" type="StaticBody2D" parent="."]
 
-[node name="new_homeless2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(715, 569)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2"]
+position = Vector2(5359, 353)
+shape = SubResource("SegmentShape2D_272bh")
+debug_color = Color(0.864913, 0.000587773, 0.863277, 0.42)
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(376, 353)
+shape = SubResource("SegmentShape2D_272bh")
+debug_color = Color(0.864913, 0.000587773, 0.863277, 0.42)
+
+[node name="new_homeless_3" parent="." instance=ExtResource("7_kek77")]
+position = Vector2(2729, 333)
+
+[node name="new_homeless_4" parent="." instance=ExtResource("7_kek77")]
+position = Vector2(2847, 334)
+
+[node name="new_homeless_5" parent="." instance=ExtResource("7_kek77")]
+position = Vector2(2789, 367)
 
 [node name="new_homeless3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(930, 561)
+position = Vector2(3714, 523)
 
 [node name="new_homeless4" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(933, 480)
+position = Vector2(3825, 545)
+
+[node name="new_homeless_6" parent="." instance=ExtResource("7_kek77")]
+position = Vector2(4270, 500)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+script = ExtResource("9_kek77")
+audio_stream_normal = ExtResource("8_4c57u")
+audio_stream_boss = ExtResource("10_efxa6")
+
+[node name="TransitionArea" type="Area2D" parent="."]
+script = ExtResource("11_efxa6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
+position = Vector2(5125.5, 500.5)
+shape = SubResource("RectangleShape2D_dg77c")
+debug_color = Color(6.01634e-09, 0.0823206, 0.103285, 0.42)

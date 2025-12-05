@@ -208,7 +208,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dead",
-"speed": 5.0
+"speed": 0.7
 }, {
 "frames": [{
 "duration": 1.0,
@@ -445,8 +445,8 @@ animations = [{
 position = Vector2(96, 21)
 scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_6y84o")
-animation = &"4.5"
-frame_progress = 0.794457
+animation = &"dead"
+frame_progress = 0.166599
 
 [node name="Special" type="Node2D" parent="."]
 
@@ -455,4 +455,3 @@ position = Vector2(27, 72)
 scale = Vector2(1.28906, 1.28906)
 sprite_frames = SubResource("SpriteFrames_mu7qq")
 animation = &"full"
-frame_progress = 0.477959

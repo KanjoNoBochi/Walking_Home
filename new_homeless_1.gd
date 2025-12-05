@@ -1,11 +1,10 @@
-# homeless_npc_complete.gd
 extends CharacterBody2D
 
 enum State { IDLE, CHASE, ATTACK, HURT, DEAD }
 
 const SPEED = 150.0
 const ATTACK_DAMAGE = 1
-const ATTACK_RADIUS = 25.0  # Radio para detectar cuando atacar
+const ATTACK_RADIUS = 25.0
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
@@ -26,10 +25,16 @@ var hurtbox_offset_right = Vector2(0, 0)
 var hurtbox_offset_left = Vector2(12, 0)
 
 func _ready():
-	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
-	detection_area.body_exited.connect(_on_detection_area_body_exited)
-	animationPlayer.animation_finished.connect(_on_animation_finished)
+	# Conectar todas las señales
+	if not hurtbox.area_entered.is_connected(_on_hurtbox_area_entered):
+		hurtbox.area_entered.connect(_on_hurtbox_area_entered)
+	if not detection_area.body_entered.is_connected(_on_detection_area_body_entered):
+		detection_area.body_entered.connect(_on_detection_area_body_entered)
+	if not detection_area.body_exited.is_connected(_on_detection_area_body_exited):
+		detection_area.body_exited.connect(_on_detection_area_body_exited)
+	if not animationPlayer.animation_finished.is_connected(_on_animation_finished):
+		animationPlayer.animation_finished.connect(_on_animation_finished)
+	
 	add_to_group("enemy")
 	
 	hitbox.monitoring = false
@@ -63,12 +68,11 @@ func handle_idle():
 	can_receive_damage = true
 	hurtbox.monitoring = true
 	
-	# Si hay jugador detectado, perseguirlo
 	if player_ref:
 		change_state(State.CHASE)
 
 func handle_chase():
-	# Verificar si jugador está muerto o no existe
+	# VERIFICAR SI EL JUGADOR ESTÁ MUERTO ANTES DE TODO
 	if not player_ref or (player_ref.has_method("current_state") and player_ref.current_state == player_ref.State.DEAD):
 		change_state(State.IDLE)
 		return
@@ -80,14 +84,13 @@ func handle_chase():
 	sprite2d.flip_h = direction.x < 0
 	animationPlayer.play("walk")
 	
-	# Verificar distancia para atacar (usando un radio en lugar de la hitbox)
 	var distance_to_player = global_position.distance_to(player_ref.global_position)
 	if distance_to_player < ATTACK_RADIUS:
 		change_state(State.ATTACK)
 
 func handle_attack():
 	# Verificar si jugador está muerto
-	if player_ref and player_ref.has_method("current_state") and player_ref.current_state == player_ref.State.DEAD:
+	if not player_ref or (player_ref.has_method("current_state") and player_ref.current_state == player_ref.State.DEAD):
 		change_state(State.IDLE)
 		return
 	
@@ -131,11 +134,9 @@ func change_state(new_state: State):
 			animationPlayer.play("hurt")
 		State.DEAD:
 			animationPlayer.play("dead")
-			# Desactivar completamente las colisiones
 			hurtbox.monitoring = false
 			hitbox.monitoring = false
 			hitbox.monitorable = false
-			# Programar desaparición
 			await get_tree().create_timer(2.0).timeout
 			queue_free()
 
@@ -175,6 +176,12 @@ func check_hitbox_collisions():
 			can_deal_damage = false
 			hitbox.monitoring = false
 
+# NUEVA FUNCIÓN PARA CUANDO EL JUGADOR MUERE
+func on_player_died():
+	print("NPC: Jugador murió, volviendo a idle")
+	player_ref = null  # Limpiar referencia al jugador
+	change_state(State.IDLE)
+
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		player_ref = body
@@ -195,8 +202,7 @@ func _on_hurtbox_area_entered(area):
 func _on_animation_finished(anim_name):
 	match anim_name:
 		"attack":
-			# Verificar si el jugador sigue en rango
-			if player_ref:
+			if player_ref and player_ref.has_method("current_state") and player_ref.current_state != player_ref.State.DEAD:
 				var distance_to_player = global_position.distance_to(player_ref.global_position)
 				if distance_to_player < ATTACK_RADIUS:
 					change_state(State.ATTACK)
@@ -205,8 +211,7 @@ func _on_animation_finished(anim_name):
 			else:
 				change_state(State.IDLE)
 		"hurt":
-			# Si hay jugador detectado, perseguirlo
-			if player_ref:
+			if player_ref and player_ref.has_method("current_state") and player_ref.current_state != player_ref.State.DEAD:
 				change_state(State.CHASE)
 			else:
 				change_state(State.IDLE)

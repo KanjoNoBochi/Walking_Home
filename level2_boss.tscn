@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsdyid2p1bt24"]
+
+[ext_resource type="PackedScene" uid="uid://c6cpjjqqojubj" path="res://EdificiosYVereda.tscn" id="1_4qpno"]
+[ext_resource type="Script" uid="uid://cy3caftg4nduk" path="res://level2_boss.gd" id="1_x34rk"]
+[ext_resource type="PackedScene" uid="uid://ova5bb66icdy" path="res://Calle.tscn" id="2_cpbrf"]
+[ext_resource type="PackedScene" uid="uid://ccq5xjrooo87q" path="res://new_raider.tscn" id="3_dpjyv"]
+[ext_resource type="PackedScene" uid="uid://dna736khxal1k" path="res://new_gangster.tscn" id="4_x34rk"]
+[ext_resource type="PackedScene" uid="uid://buyjb86757ej3" path="res://HUD.tscn" id="5_vumdr"]
+[ext_resource type="Script" uid="uid://jysphxr4j5cd" path="res://canvas_layer.gd" id="6_qkm4y"]
+[ext_resource type="AudioStream" uid="uid://d2c3w3occa6d4" path="res://Walking_Home/assets/audio/boss_music.mp3" id="7_invgx"]
+[ext_resource type="Script" uid="uid://0cjc3m21jnbs" path="res://background_music.gd" id="7_vumdr"]
+[ext_resource type="AudioStream" uid="uid://cqrhqbv1o68tq" path="res://Walking_Home/assets/audio/normal_music.mp3" id="8_itm0u"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_invgx"]
+a = Vector2(0, -7)
+b = Vector2(0, 486)
+
+[node name="Level2Boss" type="Node2D"]
+script = ExtResource("1_x34rk")
+
+[node name="EdificiosYVereda" parent="." instance=ExtResource("1_4qpno")]
+
+[node name="Calle" parent="." instance=ExtResource("2_cpbrf")]
+position = Vector2(0, -122)
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Calle"]
+position = Vector2(382, 356)
+shape = SubResource("SegmentShape2D_invgx")
+debug_color = Color(0.864913, 0.000587773, 0.863277, 0.42)
+
+[node name="EdificiosYVereda2" parent="." instance=ExtResource("1_4qpno")]
+position = Vector2(1150, 0)
+
+[node name="Calle2" parent="." instance=ExtResource("2_cpbrf")]
+position = Vector2(1150, -122)
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Calle2"]
+position = Vector2(795, 362)
+shape = SubResource("SegmentShape2D_invgx")
+debug_color = Color(0.864913, 0.000587773, 0.863277, 0.42)
+
+[node name="new_raider" parent="." instance=ExtResource("3_dpjyv")]
+position = Vector2(405, 388)
+
+[node name="new_gangster" parent="." instance=ExtResource("4_x34rk")]
+position = Vector2(1569, 377)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["hud"]]
+script = ExtResource("6_qkm4y")
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_vumdr")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+autoplay = true
+script = ExtResource("7_vumdr")
+music_type = "boss"
+audio_stream_normal = ExtResource("8_itm0u")
+audio_stream_boss = ExtResource("7_invgx")
